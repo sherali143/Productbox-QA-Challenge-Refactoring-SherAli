@@ -78,6 +78,11 @@
                 return false;
             }
         }
+
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
         
         firstNameInput.addEventListener("keydown", validateNameInput);
         lastNameInput.addEventListener("keydown", validateNameInput);
