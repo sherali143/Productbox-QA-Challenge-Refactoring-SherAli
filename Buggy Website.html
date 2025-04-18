@@ -71,12 +71,17 @@
         const phoneInput = document.querySelector("#phone");
         const dobInput = document.querySelector("#dob");
 
-        firstNameInput.addEventListener("keydown", (event) => {
-            if(event.code == "Space") {
-                alert("Empty spaces are not allowed")
+        function validateNameInput(event) {
+            const regex = /^[A-Za-z\s]+$/;
+            if (!regex.test(event.key) && event.key !== 'Backspace' && event.key !== 'Delete' && event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') {
+                event.preventDefault();
                 return false;
             }
-        });
+        }
+        
+        firstNameInput.addEventListener("keydown", validateNameInput);
+        lastNameInput.addEventListener("keydown", validateNameInput);
+        fatherNameInput.addEventListener("keydown", validateNameInput);
 
         const onSubmit = (event) => {
             event.preventDefault();
