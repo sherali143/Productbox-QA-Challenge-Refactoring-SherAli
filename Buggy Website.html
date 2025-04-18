@@ -102,26 +102,74 @@
             const lastName = lastNameInput.value;
             const email = emailInput.value;
             const fatherName = fatherNameInput.value;
+            const phone = phoneInput.value;
+            const dob = dobInput.value;
+            
+            // First name validation
             if(!firstName.trim()) {
                 alert("First name can't be empty");
+                firstNameInput.focus();
                 return false;
             }
+            
+            // Last name validation
+            if(!lastName.trim()) {
+                alert("Last name can't be empty");
+                lastNameInput.focus();
+                return false;
+            }
+            
+            // Father name validation
             if(!fatherName.trim()) {
-                alert("Name can't be empty");
+                alert("Father name can't be empty");
+                fatherNameInput.focus();
                 return false;
             }
+            
+            // Email validation
             if(!email.trim()) {
-                alert("email is required");
-                window.location = "404.html";
+                alert("Email is required");
+                emailInput.focus();
                 return false;
             }
+            
+            if(!validateEmail(email)) {
+                alert("Please enter a valid email address");
+                emailInput.focus();
+                return false;
+            }
+            
+            // Phone validation
+            if(!phone.trim()) {
+                alert("Phone number is required");
+                phoneInput.focus();
+                return false;
+            }
+            
+            if(!validatePhone(phone)) {
+                alert("Please enter a valid phone number (10-15 digits)");
+                phoneInput.focus();
+                return false;
+            }
+            
+            // Date of birth validation
+            if(!dob) {
+                alert("Date of birth is required");
+                dobInput.focus();
+                return false;
+            }
+            
+            // Gender validation
+            const genderSelected = document.querySelector('input[name="gender"]:checked');
+            if(!genderSelected) {
+                alert("Please select a gender");
+                return false;
+            }
+            
+            // If all validations pass, proceed
             localStorage.setItem("fullName", firstName + " " + lastName);
             localStorage.setItem("loggedin", 1);
             window.location = "dashboard.html";
-        }
-
-        const onDoubleClick = (event) => {
-            window.location = "404.html";
         }
 
         submitButton.addEventListener("dblclick", onDoubleClick);
