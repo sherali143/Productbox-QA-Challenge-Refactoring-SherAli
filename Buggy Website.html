@@ -29,9 +29,10 @@
                 <input type="email" placeholder="Enter Email" id="email" required>
             </div>
             <div class="form-group">
-                <label for="">Phone Number<span>*</span></label>
-                <input type="number" placeholder="Enter Phone Number" required>
+                <label for="phone">Phone Number<span>*</span></label>
+                <input type="tel" placeholder="Enter Phone Number" required id="phone" pattern="[0-9]{10,15}">
             </div>
+
             <div id="radio-wrapper" class="form-group">
                 <div>Gender</div>
                 <input type="radio" name="gender" id="male" value="male">
