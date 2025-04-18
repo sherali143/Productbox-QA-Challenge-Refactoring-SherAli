@@ -62,11 +62,14 @@
 
     <script>
         const submit = false;
+        const form = document.querySelector("#form");
         const submitButton = document.querySelector("#submit-btn");
         const firstNameInput = document.querySelector("#first-name");
         const lastNameInput = document.querySelector("#last-name");
         const emailInput = document.querySelector("#email");
         const fatherNameInput = document.querySelector("#father-name");
+        const phoneInput = document.querySelector("#phone");
+        const dobInput = document.querySelector("#dob");
 
         firstNameInput.addEventListener("keydown", (event) => {
             if(event.code == "Space") {
